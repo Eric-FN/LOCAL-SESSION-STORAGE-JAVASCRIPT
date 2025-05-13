@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Prática 2 JS.2</title>
+  </head>
+  <body>
+    <div class="boxText">
+      <div class="text"></div>
+    </div>
+    <div class="boxBtn">
+      <button type="button" class="btn" id="lS">INSERIR localStorage</button>
+      <button type="button" class="btn" id="sT">INSERIR sessionStorage</button>
+      <button type="button" class="btn" id="eD">EXIBIR dados</button>
+    </div>
+    <script>
+      const text = document.querySelector(".text");
+      const btnLS = document.querySelector("#lS");
+      const btnST = document.querySelector("#sT");
+      const btnED = document.querySelector("#eD");
+
+      btnLS.addEventListener("click", function () {
+        /* vai armazenar no localStorage
+             Chave: 🡺 M4_UD02_P02
+             Valor: 🡺 Nome do aluno
+        */
+        if ((localStorage.value === "M4_UD02_P02", "M4_UD02_P02")) {
+          alert("erro");
+        } else {
+          localStorage.setItem("M4_UD02_P02", "ERIC FONSECA");
+        }
+      });
+      btnST.addEventListener("click", function () {
+        const mSec = new Date().getTime();
+        if (sessionStorage.getItem("Date") !== null) {
+          sessionStorage.setItem("Date", mSec);
+        } else {
+          sessionStorage.setItem("Date", mSec);
+        }
+      });
+      btnED.addEventListener("click", function () {
+        const newText = document.createElement("p");
+        const textDiv = document.querySelector(".text");
+        const localData = JSON.stringify(localStorage);
+        const sessionData = JSON.stringify(sessionStorage);
+
+        const existP = textDiv.querySelector("p");
+        if (existP) {
+          existP.innerText = `
+           localStorage: ${localData}
+   
+           sessionStorage: ${sessionData}
+           `;
+        } else {
+          newText.innerText = `
+           localStorage: ${localData}
+   
+           sessionStorage: ${sessionData}
+           `;
+          textDiv.appendChild(newText);
+        }
+      });
+    </script>
+  </body>
+</html>
